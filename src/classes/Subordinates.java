@@ -3,7 +3,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.FileWriter;
 import java.util.Scanner;
-public class Subordinates {
+public class Subordinates implements Cloneable{
     /** Кол-во подчиненных **/
     private int amount;
     /** Average seniority of subordinates - средний стаж подчиненных **/
@@ -130,5 +130,10 @@ public class Subordinates {
         catch(Exception e){
             System.out.println(e);
         }
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

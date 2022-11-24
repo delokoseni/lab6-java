@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.FileWriter;
 import java.util.Scanner;
 
-public class Jobtitle {
+public class Jobtitle implements Cloneable{
     /** Наименование должности **/
     private String jtitle;
     /** Стоимость часа работы **/
@@ -138,5 +138,15 @@ public class Jobtitle {
         catch(Exception e){
             System.out.println(e);
         }
+    }
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    public Object deepclone() throws CloneNotSupportedException {
+        Jobtitle jt = (Jobtitle) super.clone();
+        jt.subs = (Subordinates)this.subs.clone();
+        return jt;
     }
 }
